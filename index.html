@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-WH7JPJ5CNJ"></script>
+	<script>
+	$(function () {
+		var austDay = new Date();
+		austDay = new Date('2023-11-02');
+		$('#defaultCountdown').countdown({until: austDay});
+		$('#year').text(austDay.getFullYear());
+	});
+	</script>
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -128,15 +137,6 @@
 <script src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/jquery.plugin.min.js"></script>
 <script type="text/javascript" src="js/jquery.countdown.min.js"></script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-WH7JPJ5CNJ"></script>
-<script>
-$(function () {
-	var austDay = new Date();
-	austDay = new Date('2023-11-02');
-	$('#defaultCountdown').countdown({until: austDay});
-	$('#year').text(austDay.getFullYear());
-});
-</script>
 <script>
 	window.dataLayer = window.dataLayer || [];
 	function gtag(){dataLayer.push(arguments);}
