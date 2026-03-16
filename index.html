@@ -1,147 +1,575 @@
 <!DOCTYPE html>
-<html lang="en">
+<!--[if lt IE 7]> <html class="ie lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>    <html class="ie lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>    <html class="ie lt-ie9"> <![endif]-->
+<!--[if gt IE 8]> <html> <![endif]-->
+<!--[if !IE]><!--><html lang="en"><!-- <![endif]-->
 <head>
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-WH7JPJ5CNJ"></script>
-	<script>
-	$(function () {
-		var austDay = new Date();
-		austDay = new Date('2023-11-02');
-		$('#defaultCountdown').countdown({until: austDay});
-		$('#year').text(austDay.getFullYear());
-	});
-	</script>
-	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Coming soon by swiftstand</title>
-    
-	<!-- Bootstrap CSS -->
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-     <!-- CSS Custom -->
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    
-    <!-- favicon Icon -->
-    <!--<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-	<link rel="icon" href="images/favicon.ico" type="image/x-icon">-->
-    <!-- CSS Plugins -->
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/animate.min.css">
-    <!-- Google Fonts -->
-	<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
-     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+	<title>Happy Birthday</title>
+	<meta charset="UTF-8" />
+	<meta name="description" content="Happy Birthday Anggie">
+	<meta name="robots" content="index, follow" />
+  <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+	<link rel="author" href="alex" /> 
+    <meta name="keywords" content="Birthday, Happy">
 
+    <!-- Strat of Facebook Meta -->
+    <meta property="og:type" content="E-Greeting" />
+    <meta property="og:image" content="favicon.ico" />
+    <meta property="og:description" content="Wish you a very Happy Birthday">
+    <!-- End of Facebook Meta Tags -->
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+	<link rel="stylesheet" type="text/css" href="css/loading.css">
+	<link href='http://fonts.googleapis.com/css?family=Signika' rel='stylesheet' type='text/css'>
+	<!-- <link href='http://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'> -->
+	<link rel="stylesheet/less" href="cake.less"> 
+	<style type="text/css" id="less:birthday-cake">
+    
+    /* ============================================== POSITION
+*/
+.cake {
+  position: absolute;
+  display: none;
+  left: 50%;
+  margin-left: -150px;
+  width: 300px;
+  height: 300px;
+}
+/* ============================================== BASE
+*/
+.cake:after {
+  background: #ffffff;
+  border-radius: 300px;
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 300px;
+  height: 6px;
+}
+/* ============================================== Candle
+*/
+.velas {
+  background: #ffffff;
+  border-radius: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -7.5px;
+  margin-top: -25px;
+  width: 15px;
+  height: 50px;
+}
+.velas:after,
+.velas:before {
+  background: rgba(255, 0, 0, 0.4);
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 6.66666667px;
+}
+.velas:after {
+  top: 25%;
+  left: 0;
+}
+.velas:before {
+  top: 45%;
+  left: 0;
+}
+/* ============================================== Fire
+*/
+.fuego {
+  display: none;
+  border-radius: 100%;
+  box-shadow: 0 0 40px 10px rgba(248, 233, 209, 0.2);
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  margin-left: -10px;
+  width: 20px;
+  height: 37.5px;
+}
+.fuego:nth-child(1) {
+  -webkit-animation: fuego 2s infinite;
+  -moz-animation: fuego 2s infinite;
+  -o-animation: fuego 2s infinite;
+  -ms-animation: fuego 2s infinite;
+  animation: fuego 2s infinite;
+}
+.fuego:nth-child(2) {
+  -webkit-animation: fuego 1.5s infinite;
+  -moz-animation: fuego 1.5s infinite;
+  -o-animation: fuego 1.5s infinite;
+  -ms-animation: fuego 1.5s infinite;
+  animation: fuego 1.5s infinite;
+}
+.fuego:nth-child(3) {
+  -webkit-animation: fuego 1s infinite;
+  -moz-animation: fuego 1s infinite;
+  -o-animation: fuego 1s infinite;
+  -ms-animation: fuego 1s infinite;
+  animation: fuego 1s infinite;
+}
+.fuego:nth-child(4) {
+  -webkit-animation: fuego 0.5s infinite;
+  -moz-animation: fuego 0.5s infinite;
+  -o-animation: fuego 0.5s infinite;
+  -ms-animation: fuego 0.5s infinite;
+  animation: fuego 0.5s infinite;
+}
+.fuego:nth-child(5) {
+  -webkit-animation: fuego 0.2s infinite;
+  -moz-animation: fuego 0.2s infinite;
+  -o-animation: fuego 0.2s infinite;
+  -ms-animation: fuego 0.2s infinite;
+  animation: fuego 0.2s infinite;
+}
+/* ============================================== Animation Fire
+*/
+@-webkit-keyframes fuego {
+  0% {
+    background: rgba(254, 248, 97, 0.5);
+    -webkit-transform: translateY(0) scale(1);
+  }
+  50% {
+    background: rgba(255, 50, 0, 0.1);
+    -webkit-transform: translateY(-60px) scale(0);
+  }
+  100% {
+    background: rgba(254, 248, 97, 0.5);
+    -webkit-transform: translateY(0) scale(1);
+  }
+}
+@-moz-keyframes fuego {
+  0% {
+    background: rgba(254, 248, 97, 0.5);
+    -moz-transform: translateY(0) scale(1);
+  }
+  50% {
+    background: rgba(255, 50, 0, 0.1);
+    -moz-transform: translateY(-60px) scale(0);
+  }
+  100% {
+    background: rgba(254, 248, 97, 0.5);
+    -moz-transform: translateY(0) scale(1);
+  }
+}
+@-o-keyframes fuego {
+  0% {
+    background: rgba(254, 248, 97, 0.5);
+    -o-transform: translateY(0) scale(1);
+  }
+  50% {
+    background: rgba(255, 50, 0, 0.1);
+    -o-transform: translateY(-60px) scale(0);
+  }
+  100% {
+    background: rgba(254, 248, 97, 0.5);
+    -o-transform: translateY(0) scale(1);
+  }
+}
+@-ms-keyframes fuego {
+  0% {
+    background: rgba(254, 248, 97, 0.5);
+    -ms-transform: translateY(0) scale(1);
+  }
+  50% {
+    background: rgba(255, 50, 0, 0.1);
+    -ms-transform: translateY(-60px) scale(0);
+  }
+  100% {
+    background: rgba(254, 248, 97, 0.5);
+    -ms-transform: translateY(0) scale(1);
+  }
+}
+@keyframes fuego {
+  0% {
+    background: rgba(254, 248, 97, 0.5);
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    background: rgba(255, 50, 0, 0.1);
+    transform: translateY(-60px) scale(0);
+  }
+  100% {
+    background: rgba(254, 248, 97, 0.5);
+    transform: translateY(0) scale(1);
+  }
+}
+/* ============================================== Frosting
+*/
+.cobertura {
+  background: #ece7e3;
+  border-radius: 150px;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  margin-left: -83.33333333px;
+  margin-top: -15px;
+  width: 166.66666667px;
+  height: 37.5px;
+  z-index: 10;
+}
+.cobertura:after,
+.cobertura:before {
+  background: #ece7e3;
+  border-radius: 300px;
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 30px;
+}
+.cobertura:after {
+  top: 20px;
+  right: 42.85714286px;
+}
+.cobertura:before {
+  top: 30px;
+  right: 27.27272727px;
+}
+/* ============================================== BIZCOCHO
+*/
+.bizcocho {
+  background: #6d3826;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -75px;
+  width: 150px;
+  height: 100px;
+}
+.bizcocho:after,
+.bizcocho:before {
+  background: rgba(236, 231, 227, 0.6);
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 15px;
+}
+.bizcocho:after {
+  top: 30%;
+  left: 0;
+}
+.bizcocho:before {
+  top: 60%;
+  left: 0;
+}
+
+/* ============================================== Album
+*/
+.album-photo {
+  display: none;
+  position: absolute;
+  width: 300px; /* looks like landscape photo */
+  height: auto;
+  border: 5px solid white;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.album-photo:hover {
+  transform: scale(1.05) rotate(0deg);
+  z-index: 10;
+}
+
+/* Left side */
+.album-left-1 { top: 30px; left: 50px; transform: rotate(-5deg); }
+.album-left-2 { top: 205px; left: 70px; transform: rotate(4deg); }
+
+/* Right side */
+.album-right-1 { top: 30px; right: 50px; transform: rotate(5deg); }
+.album-right-2 { top: 205px; right: 70px; transform: rotate(-4deg); }
+
+
+/* ============================================== TEXT
+*/
+h1,
+p {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  font-style: italic;
+  text-align: center;
+  width: 100%;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.profile-img {
+  position: absolute; /* relative to .cake */
+  bottom: 30px;  /* 10px below cake */
+  right: -170px;  /* 70px to the right of cake */
+  width: 107px;
+  height: 150px;
+  border: 5px solid white;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+  border-radius: 10px;
+}
+
+</style>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.1.0/less.min.js"></script>
 </head>
+
 <body>
+	<div class="loading"></div>
+  <img src="assets/images/photo1.jpg" class="album-photo album-left-1">
+  <img src="assets/images/photo2.jpg" class="album-photo album-left-2">
+  <img src="assets/images/photo3.jpg" class="album-photo album-right-1">
+  <img src="assets/images/photo4.jpg" class="album-photo album-right-2">
 
+  <!-- Hint image -->
+  <img src="assets/images/can-zoom.png" class="can-zoom">
 
-	
-<header class="navbar-fixed-top">
+	<audio class="song" controls loop>
+        <source src="assets/audio/hbd.mp3"></source>
+	   Your browser isn't invited for super fun audio time.
+    </audio>
+    <div class="balloons text-center" id="b1">
+    	<h2 style="color:#F2B300;">H</h2>
+    </div>
+    <div class="balloons text-center" id="b2">
+    	<h2 style="color:#0719D4;">B</h2>
+    </div>
+	<div class="balloons text-center" id="b3">
+    	<h2 style="color:#D14D39;">D</h2>
+    </div>
+	<div class="balloons text-center" id="b4">
+    	<h2 style="color:#8FAD00;">B</h2>
+    </div>
+	<div class="balloons text-center" id="b5">
+    	<h2 style="color:#8377E4;">A</h2>
+    </div>
+    <div class="balloons text-center" id="b6">
+    	<h2 style="color:#99C96A;">B</h2>
+    </div>
+    <div class="balloons text-center" id="b7">
+    	<h2 style="color:#20CFB4;">Y</h2>
+    </div>
+
+    <img src="assets/images/Balloon-Border.png" width="100%" class="balloon-border">
+ 
+
 	<div class="container">
-    	<div class="row">
-        		
-				<div class="col-md-12">
-            		<div class="logo_bar">
-						<ul>
-							  <li><a href="https://wa.link/0f882q">  Contact  </a></li>
-						</ul>     
-					</div>
-				</div>
-				
-			</div>
-		</div>
-</header>
-
-<section class="coming_soon_bg secondary-bg">
-	<div class="container">
+		
 		<div class="row">
+			<div class="col-md-2 col-xs-2 bulb-holder">
+				<div class="bulb" id="bulb_yellow"></div>
+			</div>
+			<div class="col-md-2 col-xs-2 bulb-holder">
+				<div class="bulb" id="bulb_red"></div>
+			</div>
+			<div class="col-md-2 col-xs-2 bulb-holder">
+				<div class="bulb" id="bulb_blue"></div>
+			</div>
+			<div class="col-md-2 col-xs-2 bulb-holder">
+				<div class="bulb" id="bulb_green"></div>
+			</div>
+			<div class="col-md-2 col-xs-2 bulb-holder">
+				<div class="bulb" id="bulb_pink"></div>
+			</div>
+			<div class="col-md-2 col-xs-2 bulb-holder">
+				<div class="bulb" id="bulb_orange"></div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 text-center">
+				<img src="assets/images/banner.png" class="bannar">
+			</div>
+		</div>
+		<!-- <div class="row message">
+			<div class="col-md-12"><p>Khushbu</p></div>
+		</div> -->
+		<div class="row cake-cover">
+			<div class="col-md-12 texr-center">
+				<div class="cake">
+				  <div class="velas">
+				    <div class="fuego"></div>
+				    <div class="fuego"></div>
+				    <div class="fuego"></div>
+				    <div class="fuego"></div>
+				    <div class="fuego"></div>
+				  </div>
+				  <div class="cobertura"></div>
+          <img src="assets/images/person.png" class="profile-img">
+				  <div class="bizcocho"></div>
+				</div>
+			</div>
+		</div>
+		<div class="row message">
 			<div class="col-md-12">
-				
-				
-				<div class="col-md-4">
-						<div class="coming_soon_img">
-						<img src="images/bridge/ms2.png" alt="image">
-						</div>
-				</div>
-				
-				<div class="col-md-8">
-					<div class="side_section">
-					
-					<div class="coming_soon_detail">
-							<h2> This App is Almost Ready We're Coming Soon...</h2>
-							
-					</div>		
-							<div class="timer">
-								<div id="defaultCountdown"></div>			
-								</div>
-							
-						<form>
-						  <div class="form-group email_field">
-							<input type="email" style="text-align: center;" disabled class="form-control" id="exampleInputEmail1" placeholder="want to learn more" >
-						  </div>
-						  
-						  <div class="search_btn-2">
- 							<a href="about-us.html" class="btn btn-default" type="submit">  Click Here </a>	
-						 </div>
-					   </form>
-					
-					</div>
-				</div>
-					
-					
-					
-					
+				<p>Today feels like any other day...</p>
+        <p>the sun still rises, the world still moves</p>
+        <p>and life goes on as it always does.</p>
+
+        <p>But somehow...</p>
+        <p>today feels different.</p>
+
+        <p>Maybe it's because</p>
+        <p>another beautiful year of your life</p>
+        <p>has quietly passed by,</p>
+        <p>almost like a blink of the eyes.</p>
+
+        <p>And yet...</p>
+        <p>this day isn’t ordinary.</p>
+
+        <p>Because today</p>
+        <p>the world celebrates you.</p>
+
+        <p>The day someone as wonderful as you</p>
+        <p>came into this world.</p>
+
+        <p>And for me...</p>
+        <p>that makes today</p>
+        <p>one of the most special days there is.</p>
+
+        <p>So let’s pause for a moment...</p>
+        <p>and turn this day</p>
+        <p>into something unforgettable.</p>
+
+        <p>A day filled with laughter,</p>
+        <p>warm memories,</p>
+        <p>and little moments of happiness</p>
+        <p>that will stay in your heart forever.</p>
+
+        <p>I made this small thing...</p>
+        <p>just as a simple birthday gift for you.</p>
+
+        <p>Not because it's perfect,</p>
+        <p>but because it carries something real —</p>
+        <p>a piece of my heart.</p>
+
+        <p>I'm truly grateful</p>
+        <p>that our paths crossed on zzz.</p>
+
+        <p>From that moment,</p>
+        <p>a beautiful friendship began.</p>
+
+        <p>And honestly...</p>
+        <p>I'm thankful for every moment since.</p>
+
+        <p>Thank you</p>
+        <p>for the laughs we shared,</p>
+        <p>the conversations,</p>
+        <p>and the memories we've created together.</p>
+
+        <p>As you begin another year of your life,</p>
+        <p>I hope it brings you peace,</p>
+        <p>joy,</p>
+        <p>and countless reasons to smile.</p>
+
+        <p>May your dreams slowly unfold</p>
+        <p>into reality.</p>
+
+        <p>May your heart stay light,</p>
+        <p>your mind stay brave,</p>
+        <p>and your spirit remain free.</p>
+
+        <p>Like a bird in the open sky...</p>
+        <p>flying wherever your dreams take you.</p>
+
+        <p>Because the truth is...</p>
+        <p>the most beautiful chapters of your story</p>
+        <p>are still waiting ahead.</p>
+
+        <p>Your real journey</p>
+        <p>is only just beginning.</p>
+
+        <p>And yes...</p>
+        <p>there will be challenges.</p>
+
+        <p>But don't worry.</p>
+
+        <p>Because you're stronger</p>
+        <p>than you think.</p>
+
+        <p>And above all...</p>
+        <p>God always has your back.</p>
+
+        <p>This year will be brighter.</p>
+        <p>This year will be kinder.</p>
+        <p>This year will be better.</p>
+
+        <p>And somewhere along the way...</p>
+        <p>I hope you discover</p>
+        <p>even more happiness</p>
+        <p>than you ever imagined.</p>
+
+        <p>So keep your beautiful spirit alive.</p>
+        <p>Keep smiling.</p>
+        <p>Keep shining.</p>
+
+        <p>Enjoy every single moment</p>
+        <p>that today brings.</p>
+
+        <p>Let your smile</p>
+        <p>light up the world around you.</p>
+
+        <p>And let today become</p>
+        <p>a memory you will always treasure.</p>
+
+        <p>Lastly...</p>
+        <p>before this moment passes</p>
+        <p>I want to say it one more time.</p>
+
+        <p>Happy Birthday.</p>
+
+        <p>And I hope today reminds you</p>
+        <p>just how special you truly are.</p>
+
+        <p>Happy birthday babyy ❤️</p>
+        <p>You are truly special to me.</p>
 			</div>
-				
 		</div>
+		<div class="navbar navbar-fixed-bottom">
+			<div class="row">
+				<div class="col-md-6 text-center col-md-offset-3">
+					<button class="btn btn-primary" id="turn_on">Turn On The Lights</button>
+					<button class="btn btn-primary" id="play">Play the Music Babe❤️</button>
+					<button class="btn btn-primary" id="bannar_coming">Let's Decorate</button>
+					<button class="btn btn-primary" id="balloons_flying">Calm, i got you some baloons too</button>
+					<button class="btn btn-primary" id="cake_fadein">Cake? of course!</button>
+					<button class="btn btn-primary" id="light_candle">Don't forget to Light your Candle</button>
+					<button class="btn btn-primary" id="wish_message">Happy Birthday</button>
+					<button class="btn btn-primary" id="story">A message for you</button>
+					<!-- <button class="btn btn-primary" id="cake_cut">Lrt's Cut the Cake</button> -->
+				</div>
+			</div>
+			<!-- <div class="col-md-2">
+			</div>
+			<div class="col-md-2">
+			</div>
+			<div class="col-md-2">
+			</div>
+			<div class="col-md-2">
+			</div>
+			<div class="col-md-2">
+			</div> -->
+		</div>
+
+
 	</div>
-</section>
-
-
-<footer class="coming_soon_footer" >
-	<div class="container">
-    	<div class="row">
-        		
-				<div class="col-md-12">
-            		
-					<!-- Keep Footer Credit Links Intact -->
-					<p> 2023 &copy; Copyright swiftstand. All rights Reserved.</p>
-					
-					<ul>
-						<li> <a href="https://www.facebook.com/hammed.sulaiman.923"> <i class="fa fa-facebook" aria-hidden="true"></i> </a> </li>
-						<li> <a href="http://twitter.com/Dbridge_me"> <i class="fa fa-twitter" aria-hidden="true"></i> </a> </li>
-						<li> <a href="https://wa.link/n8gc2a"> <i class="fa fa-whatsapp" aria-hidden="true"></i> </a> </li>
-					</ul>
-					
-				</div>
-				
-			</div>
-		</div>
-</footer>
-
-
-
+  <div class="lightbox" id="lightbox">
+    <img src="" alt="zoomed photo">
+  </div>
 </body>
-
-<!-- JS Global -->
-         <script src="js/jquery_003.js"></script>
-
-<script src="js/jquery_002.js"></script>
-<script src="js/custom.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/jquery.plugin.min.js"></script>
-<script type="text/javascript" src="js/jquery.countdown.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<script src="js/effect.js"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8SQ2H9J48M"></script>
 <script>
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-WH7JPJ5CNJ');
-  </script>
- </html>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8SQ2H9J48M');
+</script>
+</html>
